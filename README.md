@@ -1,5 +1,5 @@
 # algotrade
-A collection of projects implementing different types of trading strategies.
+A collection of projects implementing various trading strategies.
 
 Project 1: Mean Reversion
 
