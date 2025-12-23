@@ -42,6 +42,17 @@ def fitLinearModel(df: pd.DataFrame) -> tuple:
 def plotResiduals(df: pd.DataFrame) -> None:
     df.plot(y="Residuals", title="Residual Plot")
     plt.ylabel("Price($)")
+
+    # also plot where +- 1 std dev is, +- 2 std dev is
+    spread = df['Residuals']
+    spread = spread.to_numpy()
+    mean = spread.mean()
+    stdDev = spread.std()
+    plt.axhline(y=mean + stdDev, color='red', linestyle='--', linewidth=2)
+    plt.axhline(y=mean + 2 * stdDev, color='red', linestyle='--', linewidth=2)
+    plt.axhline(y=mean - stdDev, color='red', linestyle='--', linewidth=2)
+    plt.axhline(y=mean - 2 * stdDev, color='red', linestyle='--', linewidth=2)
+
     plt.show()
 
 def doCadf(df: pd.DataFrame) -> tuple:
